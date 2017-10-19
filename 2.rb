@@ -7,15 +7,10 @@ rogue		  = Car.new("Nissan", "Rouge", 33, 14.5)
 malibu		  = Car.new("Chevrolet", "Malibu", 36, 15.8)
 grandCherokee = Car.new("Jeep", "Grand Cherokee", 26, 24.6)
 
-corolla.drive(2830)
-puts corolla.totalCost
-civic.drive(2830)
-puts civic.totalCost
-mustang.drive(2830)
-puts mustang.totalCost
-rogue.drive(2830)
-puts rogue.totalCost
-malibu.drive(2830)
-puts malibu.totalCost
-grandCherokee.drive(2830)
-puts grandCherokee.totalCost
+trip1 = Trip.new("Denver", "Las Vegas", 749)
+trip2 = Trip.new("Las Vegas", "San Francisco", 568)
+trip3 = Trip.new("San Francisco", "Los Angeles", 382)
+trip4 = Trip.new("Los Angeles", "Phoenix", 310)
+trip5 = Trip.new("Phoenix", "Denver", 821)
+
+trip1.totalCostOfCarTrip(corolla)

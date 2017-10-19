@@ -2,7 +2,10 @@ class Car
 
 	attr_accessor :make, :model, :mpg, :tankSize, :distanceDriven	
 
-	def initialize(make, model, mpg, tankSize)
+	PRICE_OF_GAS = 2.34 # constant variables in caps
+	AVG_MAINTENANCE_COST = 0.61
+
+	def initialize(make, model, mpg, tankSize) # this order matches with the order when you create a new one
 		@make = make
 		@model = model
 		@mpg = mpg.to_f
@@ -22,17 +25,24 @@ class Car
 		@distanceDriven = distanceDriven + distance
 	end
 
+	def resetOdometer()
+		@distance = 0
+	end
+
 	def totalCost
-		((distanceDriven / mpg) * 2.34) + (0.61 * distanceDriven)
+		gasCost + AVG_MAINTENANCE_COST
+	end
+
+	def maintenanceCost()
+		AVG_MAINTENANCE_COST * distance
 	end
 
 	def gasCost
-		(distanceDriven / mpg) * 2.34
+		(distanceDriven / mpg) * PRICE_OF_GAS
 	end
 
 	def fillUps
-		remainder = (distanceDriven / (tankSize * mpg)) % 1
-		(distanceDriven / (tankSize * mpg)) + (1 - remainder)
+		(distanceDriven / (tankSize * mpg)).ceil
 	end
 
 end
